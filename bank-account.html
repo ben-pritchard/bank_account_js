@@ -13,7 +13,7 @@
         <h1>Bank Account</h1>
         <h3>Where you can see all your money</h3>
       </div>
-      <div class="col-md-6">
+      <div class="col-md-4">
         <div class="form">
           <form id="add-account">
             <div class="form-group">
@@ -27,9 +27,13 @@
             <button type="submit" class="btn btn-danger">Add account</button>
           </form>
         </div>
+        <h4>Active Accounts:</h4>
+        <ul class="account-list list-unstyled">
+
+        </ul>
       </div>
 
-      <div class="col-md-6" role="tabpanel">
+      <div class="col-md-8" role="tabpanel">
         <h3>Account info for <span class="name-on-account"></span>:</h3>
         <ul id="tabs" class="nav nav-tabs" role="tablist">
           <li class="active" role="presentation"><a href="#balance" data-toggle="tab" role="tab">Balance</a></li>
@@ -77,6 +81,6 @@
     </div>
 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-    
+
   </body>
 </html>
