@@ -9,6 +9,7 @@ var BankAccount = {
 }
 
 $(document).ready(function() {
+  var currentAccount = null;
   $("form#add-account").submit(function(event) {
     event.preventDefault();
     var name = $("input#name").val();
@@ -18,15 +19,34 @@ $(document).ready(function() {
     newAccount.name = name;
     newAccount.deposit(initialDeposit);
 
-    $(".name-on-account").text(newAccount.name);
-    $(".balance").text(newAccount.balance);
-
-    $(".account-list").append("<li class='contact'>" + newAccount.name + "</li>")
-
     $("input#name").val("");
     $("input#initial-deposit").val("");
 
-    
+    $(".account-list").append("<li class='account'>" + newAccount.name + "</li>")
+
+    $('.account').last().click(function() {
+      currentAccount = newAccount;
+      $('#show-account').show();
+      $(".name-on-account").text(currentAccount.name);
+      $(".balance").text(currentAccount.balance);
+    });
   });
 
+  $("form#deposit-form").submit(function(event) {
+    event.preventDefault();
+    var depositAmount = parseInt($("input#deposit-amount").val());
+    currentAccount.deposit(depositAmount);
+    $("input#deposit-amount").val("");
+  });
+
+  $("form#withdraw-form").submit(function(event) {
+    event.preventDefault();
+    var withdrawAmount = parseInt($("input#withdraw-amount").val());
+    currentAccount.withdraw(withdrawAmount);
+    $("input#withdraw-amount").val("");
+  });
+
+  $("li#show-balance").click(function() {
+    $(".balance").text(currentAccount.balance);
+  });
 });
