@@ -7,3 +7,8 @@ var BankAccount = {
     this.balance -= amount;
   }
 }
+
+$('#tabs a').click(function (e) {
+  e.preventDefault();
+  $(this).tab('show');
+});
