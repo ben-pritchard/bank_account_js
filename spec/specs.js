@@ -7,6 +7,7 @@ describe("BankAccount", function() {
     });
   });
 
+
   describe("withdraw", function() {
     it("decreases the balance by the amount passed to it", function() {
       var account = Object.create(BankAccount);
